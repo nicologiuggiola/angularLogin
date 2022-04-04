@@ -3,10 +3,36 @@
 @include mat.core();
 
 $crimson-palette: (
- 300: #dc143c,
- contrast: (
-   300: white,
- )
+    50 : #ffe6e9,
+    100 : #ffc0c7,
+    200 : #ff96a2,
+    300 : #fe6c7c,
+    400 : #fe4d60,
+    500 : #fe2d44,
+    600 : #fe283e,
+    700 : #fe2235,
+    800 : #fe1c2d,
+    900 : #fd111f,
+    A100 : #ffffff,
+    A200 : #fff6f7,
+    A400 : #ffc3c6,
+    A700 : #ffaaae,
+    contrast: (
+        50 : #000000,
+        100 : #000000,
+        200 : #000000,
+        300 : #000000,
+        400 : #000000,
+        500 : #ffffff,
+        600 : #ffffff,
+        700 : #ffffff,
+        800 : #ffffff,
+        900 : #ffffff,
+        A100 : #000000,
+        A200 : #000000,
+        A400 : #000000,
+        A700 : #000000,
+    )
 );
 
 // Define a light theme
@@ -20,7 +46,7 @@ $light-theme: mat.define-light-theme((
 ));
 
 // Define a dark theme
-$dark-primary: mat.define-palette($crimson-palette, 300);
+$dark-primary: mat.define-palette(mat.$pink-palette);;
 $dark-accent: mat.define-palette(mat.$blue-gray-palette);
 $dark-theme: mat.define-dark-theme((
  color: (
