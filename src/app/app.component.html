@@ -5,7 +5,8 @@
     <span class="spacer"></span>
     <button routerLink="home" mat-flat-button color="primary">First Page</button>
     <button routerLink="private" mat-flat-button color="primary">Second Page</button>
-    <button routerLink="login" mat-flat-button color="primary">Login/Register</button>
+    <button *ngIf="!auth.isAuth" routerLink="login" mat-flat-button color="primary">Login/Register</button>
+    <button *ngIf="auth.isAuth" (click)="logOut()" mat-flat-button color="primary">logout</button>
   </mat-toolbar>
 
   <div class="page-content">
