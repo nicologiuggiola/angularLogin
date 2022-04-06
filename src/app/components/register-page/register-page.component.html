@@ -25,8 +25,8 @@
                 <input id="pswConfirm" formControlName="pswConfirm" matInput placeholder="Placeholder" type="password">
                 <mat-icon (click)="registerForm.controls['pswConfirm'].reset()" matSuffix>close</mat-icon>
             </mat-form-field>
-            <div *ngIf='registerForm.controls["pswConfirm"].touched && registerForm.controls["pswConfirm"].invalid'>
-                <mat-error *ngIf="registerForm.controls['pswConfirm'].errors && registerForm.controls['pswConfirm'].errors['required']">Password obbligatoria</mat-error>
+            <div *ngIf='passwordCheck'>
+                <mat-error >{{passwordCheck}}</mat-error>
             </div>
 
             <mat-form-field appearance="outline">

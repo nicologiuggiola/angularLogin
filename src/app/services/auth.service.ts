@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { map, Observable, of } from 'rxjs';
+import { filter, map, Observable, of } from 'rxjs';
 import { User } from '../model/user';
 
 @Injectable({
@@ -27,13 +27,25 @@ export class AuthService {
         //   }
         // }
         // return null;
-        debugger;
         const user = users.find(u => u.username === username && u.password === psw);
         if (user) {
           this.user = user;
           this.isAuth = true;
         }
         return user;
+      })
+    )
+  }
+
+  checkIfExists(user: User): Observable<boolean> {
+    return this.http.get<User[]>(this.API_URL + "?mail=" + user.mail).pipe(
+      map((users:User[]) => users.filter((u) => u.username === user.username)),
+      map((users: User[]) => {
+        if(users.length < 1){
+          return true;
+        }else{
+          return false;
+        }
       })
     )
   }
